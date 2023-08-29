@@ -3,9 +3,7 @@ import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import classes from './SearchBox.module.css';
 
-type Props = {};
-
-const SearchBox: React.FC<Props> = (props) => {
+const SearchBox = () => {
   return (
     <span className={classes['search-wrapper']}>
       <TextField
