@@ -1,0 +1,30 @@
+.search-wrapper {
+  height: 4rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box {
+  background-color: #1f2128;
+  height: 100%;
+  width: 20%;
+  border: none;
+  outline: none;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.search-button {
+  width: 10rem;
+  height: 100%;
+  border-radius: 1rem;
+  left: -1rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.search-button:hover {
+  box-shadow: none;
+}
