@@ -12,6 +12,11 @@ function App() {
           <HomePage />
         </Layout>
       </Route>
+      <Route path="*">
+        <Layout>
+          <p>Not Found</p>
+        </Layout>
+      </Route>
     </Switch>
   );
 }
