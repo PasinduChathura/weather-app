@@ -63,8 +63,8 @@ function HomePage() {
     <div className={classes['homepage-container']}>
       {weatherData && weatherData.length > 0 && (
         <Grid container spacing={5}>
-          {weatherData.map((weather: any) => (
-            <Grid item lg={6} md={6} sm={12} xs={12}>
+          {weatherData.map((weather: any, index) => (
+            <Grid item lg={6} md={6} sm={12} xs={12} key={index}>
               <CustomCard weather={weather} color={generateRandomColor()} />
             </Grid>
           ))}

@@ -1,14 +1,20 @@
 import axios from 'axios';
-import urlProperties from '../../utils/properties/UrlProperties';
-
-const APP_ID = 'a71dcfc6bd1a038af3e60ca8e39a52cc';
 
 export async function getWeatherData(cityCodes: String) {
   try {
+    console.log(
+      '🚀 ~ file: WeatherService.ts:11 ~ getWeatherData ~ options:',
+      process.env.REACT_APP_BASE_URL
+    );
+
     const options = {
       method: 'GET',
-      url: 'http://api.openweathermap.org/data/2.5/group',
-      params: { id: cityCodes, units: 'metric', appid: APP_ID },
+      url: `${process.env.REACT_APP_BASE_URL}/data/2.5/group`,
+      params: {
+        id: cityCodes,
+        units: 'metric',
+        appid: process.env.REACT_APP_API_KEY,
+      },
     };
     const response = await axios.request(options);
     if (response.status === 200) {
