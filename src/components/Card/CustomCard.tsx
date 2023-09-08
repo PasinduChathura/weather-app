@@ -19,6 +19,51 @@ const CustomCard: React.FC<Props> = (props) => {
         style={{ '--bg-color': color } as CSSProperties}
       >
         <span className={classes['card-content-top']}>
+          <span className={classes['card-top-sub-section']}>
+            <div className={classes['card-top-sub-section-item']}>
+              <span className={classes['card-top-content-item-text3']}>
+                {weather?.name}
+              </span>
+              <span className={classes['card-top-content-item-text1']}>
+                {moment(weather?.dt).format('h:mm A, MMMM DD')}
+              </span>
+            </div>
+            <div className={classes['card-top-sub-section-item']}>
+              <span
+                className={classes['card-top-content-item']}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                }}
+              >
+                <img
+                  src={`http://openweathermap.org/img/wn/${weather?.weather[0]?.icon}.png`}
+                  alt={weather?.weather[0]?.icon}
+                  className={classes['card-top-content-item-icon']}
+                />
+                <span className={classes['card-top-content-item-text2']}>
+                  {_.startCase(weather?.weather[0]?.description)}
+                </span>
+              </span>
+            </div>
+          </span>
+          <span className={classes['card-top-sub-section']}>
+            <div className={classes['card-top-sub-section-item']}>
+              <span className={classes['card-top-content-item-text4']}>
+                {Math.round(weather?.main?.temp)}&#176;c
+              </span>
+            </div>
+            <div className={classes['card-top-sub-section-item']}>
+              <span className={classes['card-top-content-item-text1']}>
+                Temp Min: &nbsp;{Math.round(weather?.main?.temp_min)}&#176;c
+              </span>
+              <span className={classes['card-top-content-item-text1']}>
+                Temp Max: &nbsp;{Math.round(weather?.main?.temp_max)}&#176;c
+              </span>
+            </div>
+          </span>
+        </span>
+        {/* <span className={classes['card-content-top']}>
           <span className={classes['card-top-content-item']}>
             <span className={classes['card-top-content-item-text3']}>
               {weather?.name}
@@ -33,6 +78,7 @@ const CustomCard: React.FC<Props> = (props) => {
               <img
                 src={`http://openweathermap.org/img/wn/${weather?.weather[0]?.icon}.png`}
                 alt={weather?.weather[0]?.icon}
+                className={classes['card-top-content-item-icon']}
               />
               <span className={classes['card-top-content-item-text2']}>
                 {_.startCase(weather?.weather[0]?.description)}
@@ -43,21 +89,23 @@ const CustomCard: React.FC<Props> = (props) => {
             <span className={classes['card-top-content-item-text4']}>
               {Math.round(weather?.main?.temp)}&#176;c
             </span>
-            <span className={classes['card-top-content-item-text1']}>
-              Temp Min: &nbsp;{Math.round(weather?.main?.temp_min)}&#176;c
-            </span>
-            <span className={classes['card-top-content-item-text1']}>
-              Temp Max: &nbsp;{Math.round(weather?.main?.temp_max)}&#176;c
-            </span>
+            <div className={classes['card-top-content-item-text1']}>
+              <span className={classes['card-top-content-item-text1']}>
+                Temp Min: &nbsp;{Math.round(weather?.main?.temp_min)}&#176;c
+              </span>
+              <span className={classes['card-top-content-item-text1']}>
+                Temp Max: &nbsp;{Math.round(weather?.main?.temp_max)}&#176;c
+              </span>
+            </div>
           </span>
-        </span>
+        </span> */}
       </div>
       {/* card bottom content with background image */}
       <CardContent style={{ backgroundColor: '#383b47' }}>
         <span className={classes['card-content-bottom']}>
           <span
             className={
-              classes['card-top-content-item'] +
+              classes['card-top-sub-section-item'] +
               ' ' +
               classes['left'] +
               ' ' +
@@ -90,7 +138,10 @@ const CustomCard: React.FC<Props> = (props) => {
             </span>
           </span>
           <div className={classes['card-bottom-content-divider']}></div>
-          <span className={classes['card-top-content-item']}>
+          <span
+            className={classes['card-top-sub-section-item']}
+            style={{ padding: '0 1rem' }}
+          >
             <span className={classes['card-bottom-subtext']}>
               <LuNavigation size={20} />
             </span>
@@ -101,7 +152,7 @@ const CustomCard: React.FC<Props> = (props) => {
           <div className={classes['card-bottom-content-divider']}></div>
           <span
             className={
-              classes['card-top-content-item'] +
+              classes['card-top-sub-section-item'] +
               ' ' +
               classes['right'] +
               ' ' +

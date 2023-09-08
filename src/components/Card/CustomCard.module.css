@@ -8,18 +8,33 @@
   background-image: url(../../assets/images/cloud-bg.png);
 }
 
-.card-content-top,
-.card-content-bottom {
+.card-content-bottom,
+.card-content-top {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.card-top-content-item {
+.card-content-bottom {
+  justify-content: center;
+}
+.card-content-top {
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.card-top-sub-section {
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-top-sub-section-item {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -32,6 +47,8 @@
 .card-bottom-text,
 .card-bottom-subtext {
   color: white;
+  flex-wrap: nowrap !important;
+  text-align: center;
 }
 
 .card-top-content-item-text3,
@@ -91,9 +108,34 @@
   padding-right: 1rem;
 }
 
+@media only screen and (min-width: 0px) and (max-width: 350px) {
+  .card-top-content-item-text1 {
+    font-size: 3vw;
+  }
+
+  .card-top-content-item-text2 {
+    font-size: 4vw;
+  }
+
+  .card-top-content-item-text3 {
+    font-size: 7vw;
+  }
+
+  .card-top-content-item-text4 {
+    font-size: 15vw;
+  }
+
+  .card-top-content-item-icon {
+    height: 15vw;
+    width: 15vw;
+  }
+}
+
 @media only screen and (min-width: 0px) and (max-width: 50rem) {
   .card-content-bottom {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 2rem;
     padding: 1rem 0;
   }

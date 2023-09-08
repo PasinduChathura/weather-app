@@ -20,20 +20,22 @@ const SearchBox = () => {
         id="demo-helper-text-aligned"
         className={classes['search-box']}
       />
-      <Button
-        variant="contained"
-        className={classes['search-button']}
-        onClick={() => {}}
-        sx={{
-          color: 'white',
-          backgroundColor: '#6c5dd3',
-          borderRadius: '1rem',
-          boxShadow: 'none',
-        }}
-        size="medium"
-      >
-        Add City
-      </Button>
+      <span className={classes['search-button-wrapper']}>
+        <Button
+          variant="contained"
+          className={classes['search-button']}
+          onClick={() => {}}
+          sx={{
+            color: 'white',
+            backgroundColor: '#6c5dd3',
+            borderRadius: '1rem',
+            boxShadow: 'none',
+          }}
+          size="medium"
+        >
+          <span style={{ whiteSpace: 'nowrap' }}>Add City</span>
+        </Button>
+      </span>
     </span>
   );
 };
