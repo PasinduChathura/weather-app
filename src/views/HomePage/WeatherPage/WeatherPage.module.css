@@ -1,0 +1,10 @@
+.weather-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.weather-page-card {
+  max-width: 70rem;
+}

@@ -4,9 +4,12 @@ import Grid from '@mui/material/Grid';
 import { getWeatherData } from '../../services/Weather/WeatherService';
 import cityCodes from '../../assets/cities.json';
 import classes from './HomePage.module.css';
+import { Router, useHistory } from 'react-router-dom';
+import { LuBath } from 'react-icons/lu';
 
 function HomePage() {
   const [weatherData, setWeatherData] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     // get cache data from local storage
@@ -59,15 +62,27 @@ function HomePage() {
     return randomColor;
   };
 
+  const cardClickHandler = (cityCode: any, color: String) => {
+    history.push('/weather', {
+      color: color,
+      cityCode: cityCode,
+    });
+  };
+
   return (
     <div className={classes['homepage-container']}>
       {weatherData && weatherData.length > 0 && (
         <Grid container spacing={5}>
-          {weatherData.map((weather: any, index) => (
-            <Grid item lg={6} md={6} sm={12} xs={12} key={index}>
-              <CustomCard weather={weather} color={generateRandomColor()} />
-            </Grid>
-          ))}
+          {weatherData.map((weather: any, index) => {
+            const color = generateRandomColor();
+            return (
+              <Grid item lg={6} md={6} sm={12} xs={12} key={index}>
+                <div onClick={() => cardClickHandler(weather.id, color)}>
+                  <CustomCard weather={weather} color={color} />
+                </div>
+              </Grid>
+            );
+          })}
         </Grid>
       )}
     </div>
